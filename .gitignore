@@ -3,13 +3,14 @@
 .idea/
 **/*~
 
-# Mac OSX temporary files
+# Mac stuff
 .DS_Store
 **/.DS_Store
 
-# dfx temporary files
-.dfx/
+# IC temporary files
+.dfx
+.vessel
 
 # frontend code
-node_modules/
-dist/
+node_modules
+dist
