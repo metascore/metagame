@@ -4,7 +4,7 @@ let Package = { name : Text, version : Text, repo : Text, dependencies : List Te
 let additions = [
   { name = "metascore"
   , repo = "https://github.com/metascore/metascore"
-  , version = "v0.0.0"
+  , version = "v0.1.0"
   , dependencies = ["base"]
   }
 ] : List Package

@@ -9,9 +9,9 @@ shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterfa
 
     // Your canister is responsible for storing its own full list of scores.
     // Metascore will only store the highest score for each player.
-    stable var scores = [
-        (#plug("playerPlug"), 10),
-        (#stoic("playerStoic"), 8),
+    stable var scores : [Metascore.Score] = [
+        (#plug(Principal.fromText("ztlax-3lufm-ahpvx-36scg-7b4lf-m34dn-md7or-ltgjf-nhq4k-qqffn-oqe")), 10),
+        (#stoic(Principal.fromText("k4ltb-urk4m-kdfc4-a2sib-br5ub-gcnep-tkxt2-2oqqa-ldzj2-zvmyw-gqe")), 8),
     ];
 
     // Use this to call Metascore's methods. That principal is Metascore's staging canister on Mainnet.
@@ -37,7 +37,7 @@ shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterfa
     };
 
     // Here is an example of a function to register a score in game.
-    public shared func newScore (player : Text, score : Nat) : async () {
+    public shared func newScore (player : Principal, score : Nat) : async () {
         let newScore : Metascore.Score = (#stoic(player), score);
 
         // Store your score in your own canister.
