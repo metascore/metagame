@@ -37,8 +37,8 @@ shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterfa
     };
 
     // Here is an example of a function to register a score in game.
-    public shared func newScore (player : Principal, score : Nat) : async () {
-        let newScore : Metascore.Score = (#stoic(player), score);
+    public shared func newScore (player : Metascore.Player, score : Nat) : async () {
+        let newScore : Metascore.Score = (player, score);
 
         // Store your score in your own canister.
         scores := Array.append(scores, [newScore]);

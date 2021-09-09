@@ -19,7 +19,7 @@ If you go to the staging URL, you should see your game now: https://rl4ub-oqaaa-
 Let's add a new score...
 
 ```shell
-dfx canister --network ic call metagame newScore "( \"Big Gamer Lass\", 100 )"
+dfx canister call metagame newScore "( variant { stoic = principal \"$(dfx identity get-principal)\" }, 150 )"
 ```
 
 You should see your new score being reported on https://rl4ub-oqaaa-aaaah-qbi3a-cai.raw.ic0.app/ immediately.
