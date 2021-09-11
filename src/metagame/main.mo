@@ -3,6 +3,7 @@ import Principal "mo:base/Principal";
 import Result "mo:base/Result";
 
 import Metascore "mo:metascore/Metascore";
+import Player "mo:metascore/Player";
 
 // TODO: Example of merging Metascore.GameInterface with your own type.
 shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterface = self {
@@ -37,7 +38,7 @@ shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterfa
     };
 
     // Here is an example of a function to register a score in game.
-    public shared func newScore (player : Metascore.Player, score : Nat) : async () {
+    public shared func newScore (player : Player.Player, score : Nat) : async () {
         let newScore : Metascore.Score = (player, score);
 
         // Store your score in your own canister.
@@ -45,7 +46,6 @@ shared ({ caller = owner }) actor class Metagame() : async Metascore.GameInterfa
 
         // When a new high score for a player happens, you should push that to Metascore.
         // This will ensure that your game is up-to-date in our canisters.
-        // NOTE: Metascore does not implement this method yet
         await metascore.scoreUpdate([newScore]);
     };
 };
